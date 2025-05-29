@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Accueil{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <h1 class="mb-4">Bienvenue sur l’API de gestion de notes</h1>
+
+    <p class="mb-4">Voici les routes disponibles :</p>
+
+    <table class="table table-bordered table-hover bg-white">
+        <thead class="table-light">
+            <tr>
+                <th>Méthode</th>
+                <th>URL</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for route in routes %}
+                <tr>
+                    <td><span class="badge bg-secondary">{{ route.method }}</span></td>
+                    <td><code>{{ route.url }}</code></td>
+                    <td>{{ route.desc }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
